@@ -1,0 +1,52 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+  <h5 class="my-0 mr-md-auto font-weight-normal">GANTT</h5>
+</div>
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-12 box-shadow">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Ajouter</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>10 users included</li>
+          <li>2 GB of storage</li>
+          <li>Email support</li>
+          <li>Help center access</li>
+        </ul>
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+      </div>
+    </div>
+  </div>
+</div>
+<h2>Ajouter une tâche</h2>
+<form>
+  <div class="form-group">
+    <label for="inputAddress2">Nom de la tâche</label>
+    <input type="text" class="form-control" id="inputAddress2">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputAddress2">Debut</label>
+      <input type="date" class="form-control" id="inputAddress2">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputAddress2">Fin</label>
+      <input type="date" class="form-control" id="inputAddress2">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">+</span>
+  </div>
+  <input placeholder="Durée" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+  <input placeholder="Debut" type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+  <input placeholder="Fin" type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+  <select class="form-control" id="exampleFormControlSelect1">
+  </select>
+  <button type="button" class="form-control btn btn-success btn-sm">Ajouter</button>
+</div>
+<router-outlet></router-outlet>
