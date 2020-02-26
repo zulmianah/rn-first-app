@@ -1,52 +1,65 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
   <h5 class="my-0 mr-md-auto font-weight-normal">GANTT</h5>
 </div>
-<div class="container">
-  <div class="card-deck mb-3 text-center">
-    <div class="card mb-12 box-shadow">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Ajouter</h4>
+<div class="container" id="containers">
+  <h2>Ajouter une tâche</h2>
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputAddress2">Nom de la tâche</label>
+        <input type="text" class="form-control" id="inputAddress2">
       </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>10 users included</li>
-          <li>2 GB of storage</li>
-          <li>Email support</li>
-          <li>Help center access</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+      <div class="form-group col-md-6">
+        <label for="inputAddress2">Prédecesseur</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+        </select>
       </div>
     </div>
-  </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputAddress2">Durée (en jour)</label>
+        <input type="number" class="form-control" id="inputAddress2">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Ajouter</button>
+  </form>
 </div>
-<h2>Ajouter une tâche</h2>
-<form>
-  <div class="form-group">
-    <label for="inputAddress2">Nom de la tâche</label>
-    <input type="text" class="form-control" id="inputAddress2">
+<div class="container" id="containers">
+  <h2 class="mt-4">GANTT</h2>
+  <div class="chart-wrapper">
+    <ul class="chart-values">
+      <li>sun</li>
+      <li>mon</li>
+      <li>tue</li>
+      <li>wed</li>
+      <li>thu</li>
+      <li>fri</li>
+      <li>sat</li>
+    </ul>
+    <ul class="chart-bars">
+      <li data-duration="tue½-wed" data-color="#b03532">Task</li>
+      <li data-duration="sat-mon" data-color="#33a8a5">Task</li>
+      <li data-duration="sun-tue" data-color="#30997a">Task</li>
+      <li data-duration="tue½-thu" data-color="#6a478f">Task</li>
+      <li data-duration="mon-tue½" data-color="#da6f2b">Task</li>
+      <li data-duration="wed-wed" data-color="#3d8bb1">Task</li>
+      <li data-duration="thu-fri½" data-color="#e03f3f">Task</li>
+      <li data-duration="mon½-wed½" data-color="#59a627">Task</li>
+      <li data-duration="fri-sat" data-color="#4464a1">Task</li>
+    </ul>
   </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputAddress2">Debut</label>
-      <input type="date" class="form-control" id="inputAddress2">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputAddress2">Fin</label>
-      <input type="date" class="form-control" id="inputAddress2">
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
-</form>
-<div class="input-group input-group-sm mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-sm">+</span>
-  </div>
-  <input placeholder="Durée" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-  <input placeholder="Debut" type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-  <input placeholder="Fin" type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-  <select class="form-control" id="exampleFormControlSelect1">
-  </select>
-  <button type="button" class="form-control btn btn-success btn-sm">Ajouter</button>
+  <footer class="page-footer">
+    <small>Made with <span>❤</span> by <a href="http://georgemartsoukos.com/" target="_blank">George Martsoukos</a>
+    </small>
+  </footer>
+</div>
+<div class="container" id="containers">
+  <h2 class="mt-4">GRAPHE NON ORDONNEE</h2>
+  <canvas id="myCanvas" width="490" height="490" style="border: 1px solid black;"></canvas>
+
+</div>
+<div class="container" id="containers">
+  <h2 class="mt-4">GRAPHE ORDONNEE</h2>
+  <p>Additional classes added in Bootstrap v4.4 allow containers that are 100% wide until a particular breakpoint.</p>
 </div>
 <router-outlet></router-outlet>
