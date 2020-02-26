@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Context} from "vm";
 
 @Component({
   selector: 'app-arc',
@@ -61,11 +60,12 @@ export class ArcComponent implements OnInit {
     this.longueurTete=longueurTete;
   }
 
-  dessinerArc(arc:ArcComponent, ctx: Context){
+  dessinerArc(arc:ArcComponent, canvas: HTMLCanvasElement){
     var headlen = 20;
     var dx = arc.x2 - arc.x1;
     var dy = arc.y2 - arc.y1;
     var angle = Math.atan2(dy, dx);
+    let ctx = canvas.getContext('2d');
     ctx.moveTo(arc.x1, arc.y1);
     ctx.lineTo(arc.x2, arc.y2);
     ctx.lineTo(arc.x2 - headlen * Math.cos(angle - Math.PI / 6), arc.y2 - headlen * Math.sin(angle - Math.PI / 6));
