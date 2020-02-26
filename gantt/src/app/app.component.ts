@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
+import {ArcComponent} from "./forme/arc/arc.component";
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,45 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gantt';
+
+
+  drawRectable() {
+    var canvas = document.getElementById('stage');
+    if (canvas.getContext) {
+      var ctx = canvas.getContext('2d');
+      ctx.beginPath();
+      ctx.arc(200, 75, 10, 0, 2 * Math.PI);
+      ctx.fillStyle = "#D74022";
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(100, 75, 10, 0, 2 * Math.PI);
+      ctx.fillStyle = "#D74022";
+      ctx.fill();
+      ctx.stroke();
+
+      var fromx = 100
+      var fromy = 75
+      var tox = 200
+      var toy = 75
+
+      var headlen = 20;
+      var dx = tox - fromx;
+      var dy = toy - fromy;
+      var angle = Math.atan2(dy, dx);
+      ctx.moveTo(fromx, fromy);
+      ctx.lineTo(tox, toy);
+      ctx.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+      ctx.moveTo(tox, toy);
+      ctx.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+      ctx.stroke();
+
+      let arc = new ArcComponent(100,275,200,275,20);
+      arc.dessinerArc(arc,ctx);
+    }
+
+  }
 }
 
 // essai canvas

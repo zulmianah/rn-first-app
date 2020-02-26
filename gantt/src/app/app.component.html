@@ -26,7 +26,6 @@
 </div>
 <div class="container" id="containers">
   <h2 class="mt-4">GANTT</h2>
-  <div class="gantt-target"></div>
   <div class="chart-wrapper">
     <ul class="chart-values">
       <li>sun</li>
@@ -52,7 +51,7 @@
 </div>
 <div class="container" id="containers">
   <h2 class="mt-4">GRAPHE NON ORDONNEE</h2>
-  <canvas id="myCanvas" width="490" height="490" style="border: 1px solid black;"></canvas>
+  <canvas (click)="drawRectable()" id="stage" width="1000" height="500" style="border: 1px solid black;"></canvas>
 </div>
 <div class="container" id="containers">
   <h2 class="mt-4">GRAPHE ORDONNEE</h2>
