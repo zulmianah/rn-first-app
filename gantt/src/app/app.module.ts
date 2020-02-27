@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SommetComponent } from './forme/sommet/sommet.component';
 import { ArcComponent } from './forme/arc/arc.component';
+import { GrapheComponent } from './forme/graphe/graphe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SommetComponent,
-    ArcComponent
+    ArcComponent,
+    GrapheComponent
   ],
   imports: [
     BrowserModule,

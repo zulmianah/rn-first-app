@@ -1,51 +1,51 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, ViewChild, OnInit} from '@angular/core';
 import {ArcComponent} from "./forme/arc/arc.component";
+import {SommetComponent} from "./forme/sommet/sommet.component";
+import {GrapheComponent} from "./forme/graphe/graphe.component";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'gantt';
 
-
-  drawRectable() {
+  ngOnInit(): void {
     var canvas = <HTMLCanvasElement>document.getElementById('stage');
-    if (canvas.getContext) {
-      var ctx = canvas.getContext('2d');
-      ctx.beginPath();
-      ctx.arc(200, 75, 10, 0, 2 * Math.PI);
-      ctx.fillStyle = "#D74022";
-      ctx.fill();
-      ctx.stroke();
+    const arc1 = new ArcComponent();
+    arc1.x1 = 100;
+    arc1.y1 = 100;
+    arc1.x2 = 200;
+    arc1.y2 = 100;
+    arc1.longueurTete = 100;
+    arc1.dessinerArc(arc1,canvas);
+    const sommet1 = new SommetComponent();
+    sommet1.x = 200;
+    sommet1.y = 100;
+    sommet1.rayon = 10;
+    sommet1.dessinerSommet(sommet1,canvas);
+    const sommet2 = new SommetComponent();
+    sommet2.x = 100;
+    sommet2.y = 100;
+    sommet2.rayon = 10;
+    sommet2.dessinerSommet(sommet2,canvas);
 
-      ctx.beginPath();
-      ctx.arc(100, 75, 10, 0, 2 * Math.PI);
-      ctx.fillStyle = "#D74022";
-      ctx.fill();
-      ctx.stroke();
-
-      var fromx = 100
-      var fromy = 75
-      var tox = 200
-      var toy = 75
-
-      var headlen = 20;
-      var dx = tox - fromx;
-      var dy = toy - fromy;
-      var angle = Math.atan2(dy, dx);
-      ctx.moveTo(fromx, fromy);
-      ctx.lineTo(tox, toy);
-      ctx.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
-      ctx.moveTo(tox, toy);
-      ctx.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
-      ctx.stroke();
-
-      let arc = new ArcComponent(100,275,200,275,20);
-      arc.dessinerArc(arc,canvas);
+    var g = new GrapheComponent();
+    g.listeAdjacent = new Map();
+    var vertices = [ "A", "B", "C", "D", "E", "F" ];
+    for (var i = 0; i < vertices.length; i++) { 
+      g.ajouterSommet(vertices[i]); 
     }
-
+    g.ajouterArc("A", "B"); 
+    g.ajouterArc("A", "D"); 
+    g.ajouterArc("A", "E"); 
+    g.ajouterArc("B", "C"); 
+    g.ajouterArc("D", "E"); 
+    g.ajouterArc("E", "F"); 
+    g.ajouterArc("E", "C"); 
+    g.ajouterArc("C", "F"); 
+    g.afficherGraphe();
   }
 }
 // essai gantt

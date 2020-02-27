@@ -52,27 +52,26 @@ export class ArcComponent implements OnInit {
     this._longueurTete = value;
   }
 
-  constructor(x1:number,y1:number,x2:number,y2:number,longueurTete:number) {
-    this.x1=x1;
-    this.y1=y1;
-    this.x2=x2;
-    this.y2=y2;
-    this.longueurTete=longueurTete;
-  }
-
   dessinerArc(arc:ArcComponent, canvas: HTMLCanvasElement){
+    let ctx = canvas.getContext('2d');
     var headlen = 20;
     var dx = arc.x2 - arc.x1;
     var dy = arc.y2 - arc.y1;
     var angle = Math.atan2(dy, dx);
-    let ctx = canvas.getContext('2d');
     ctx.moveTo(arc.x1, arc.y1);
     ctx.lineTo(arc.x2, arc.y2);
-    ctx.lineTo(arc.x2 - headlen * Math.cos(angle - Math.PI / 6), arc.y2 - headlen * Math.sin(angle - Math.PI / 6));
-    ctx.moveTo(arc.x2, arc.y2);
-    ctx.lineTo(arc.x2 - headlen * Math.cos(angle + Math.PI / 6), arc.y2 - headlen * Math.sin(angle + Math.PI / 6));
+        var xdeb = (arc.x1+arc.x2)/2;
+        var ydeb = (arc.y1+arc.y2)/2;
+    ctx.moveTo(xdeb, ydeb);
+    ctx.lineTo(xdeb - headlen * Math.cos(angle - Math.PI / 6), ydeb - headlen * Math.sin(angle - Math.PI / 6));
+    ctx.moveTo(xdeb, ydeb);
+    ctx.lineTo(xdeb - headlen * Math.cos(angle + Math.PI / 6), ydeb - headlen * Math.sin(angle + Math.PI / 6));
     ctx.stroke();
+    ctx.closePath();
   }
+
+  constructor() {}
+
   ngOnInit(): void {
   }
 
