@@ -15,7 +15,7 @@ export class SommetComponent implements OnInit {
   get x(): number {
     return this._x;
   }
-  
+
   set x(value: number) {
     this._x = value;
   }
@@ -40,19 +40,19 @@ export class SommetComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   dessinerSommetCouleur(sommet: SommetComponent, canvas: HTMLCanvasElement, couleur: string) {
-  	if (canvas.getContext) {
+    if (canvas.getContext) {
       var ctx = canvas.getContext('2d');
       ctx.beginPath();
       ctx.arc(sommet.x, sommet.y, sommet.rayon, 0, 2 * Math.PI);
       ctx.fillStyle = couleur;
       ctx.fill();
       ctx.stroke();
-  	}
+    }
   }
 
   dessinerSommet(sommet: SommetComponent, canvas: HTMLCanvasElement) {
-      this.dessinerSommetCouleur(sommet, canvas, "#D74022");
+    this.dessinerSommetCouleur(sommet, canvas, "#D74022");
   }
 }

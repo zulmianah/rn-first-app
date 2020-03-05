@@ -32,7 +32,8 @@ export class AppComponent implements OnInit {
     sommet2.dessinerSommet(sommet2,canvas);
 
     var g = new GrapheComponent();
-    g.listeAdjacent = new Map();
+    g.lAdjPred = new Map();
+    g.lAdjSucc = new Map();
     var vertices = [ "A", "B", "C", "D", "E", "F" ];
     for (var i = 0; i < vertices.length; i++) { 
       g.ajouterSommet(vertices[i]); 
@@ -45,7 +46,10 @@ export class AppComponent implements OnInit {
     g.ajouterArc("E", "F"); 
     g.ajouterArc("E", "C"); 
     g.ajouterArc("C", "F"); 
-    g.afficherGraphe();
+    // g.afficherGraphe();
+    // g.degreeMinimale();
+    g.genererTabTritopologie(g.degMin())
+
   }
 }
 // essai gantt
