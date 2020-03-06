@@ -9,8 +9,7 @@ export class SommetComponent implements OnInit {
   private _x: number;
   private _y: number;
   private _rayon: number;
-  successeur: Array<SommetComponent>;
-  predeccesseur: Array<SommetComponent>;
+  nomTache: string;
 
   get x(): number {
     return this._x;

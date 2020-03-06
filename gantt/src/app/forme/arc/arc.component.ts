@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SommetComponent} from "../sommet/sommet.component";
 
 @Component({
   selector: 'app-arc',
@@ -50,6 +51,16 @@ export class ArcComponent implements OnInit {
 
   set longueurTete(value: number) {
     this._longueurTete = value;
+  }
+
+  somToArc(A: SommetComponent,B: SommetComponent){
+    const AB = new ArcComponent();
+    AB.x1 = A.x;
+    AB.y1 = A.y;
+    AB.x2 = B.x;
+    AB.y2 = B.y;
+    AB.longueurTete = 100;
+    return AB;
   }
 
   dessinerArc(arc:ArcComponent, canvas: HTMLCanvasElement){

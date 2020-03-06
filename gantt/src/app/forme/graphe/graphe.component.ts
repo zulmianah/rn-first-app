@@ -7,8 +7,8 @@ import {SommetComponent} from "../sommet/sommet.component";
 	styleUrls: ['./graphe.component.css']
 })
 export class GrapheComponent implements OnInit {
-	lAdjPred:Map<string,any>
-	lAdjSucc:Map<string,any>
+	lAdjPred:Map<any,any>
+	lAdjSucc:Map<any,any>
 
 	constructor() { }
 
@@ -66,22 +66,6 @@ export class GrapheComponent implements OnInit {
 		// console.log(listeSommetZero)
 		return listeSommetZero;
 	}
-	
-	nivRacine(degMin : Map<string,any>){
-		let listeSommetZero = sommetZero(degMin)
-		var listeSommetZeroTemp = listeSommetZero;
-		for(var sommetZero of listeSommetZero){
-			var successeurTemp = this.lAdjSucc.get(sommetZero);
-			for(var i in successeurTemp){
-				if(degMin.get(successeurTemp[i])>0){
-					// listeSommetZeroTemp.push(successeurTemp[i])
-					// listeSommetZeroTemp[i] = listeSommetZeroTemp[i]-1;
-				}
-			}
-		}
-		console.log(listeSommetZeroTemp)
-		return listeSommetZeroTemp;
-	}
 
 	estTtNivNul(tritopologie){
 		for (var i of tritopologie.keys()){
@@ -99,33 +83,41 @@ export class GrapheComponent implements OnInit {
 		return true;
 	}
 
-	tabnivRacine(tabTritopologie,tempSommetZero){
+	tabnivRacine(tabTritopologie,tempSommetZero,tabSomZer){
 		var listTempSuccZero = [];
-		for(var idTritopologie in tabTritopologie){
-			if(!this.estTtNivNul(tabTritopologie[idTritopologie])){
-				tabTritopologie.push(tabTritopologie[idTritopologie])
-				for(var idTempSommetZero in tempSommetZero){
-					var tempSucc = this.lAdjSucc.get(tempSommetZero[idTempSommetZero]);
-					for(var idTempSucc in tempSucc){
-						var sommet = tempSucc[idTempSucc];
-						var tempVal = tabTritopologie[idTritopologie].get(sommet)-1;
-						if(tempVal == 0)
-							listTempSuccZero.push[sommet]
-						tabTritopologie[idTritopologie].set(sommet, tempVal)
+		var idTritopologie = tabTritopologie.length - 1;
+		if(!this.estTtNivNul(tabTritopologie[idTritopologie])){
+			tabTritopologie.push(new Map(tabTritopologie[idTritopologie]))
+			for(var idTempSommetZero in tempSommetZero){
+				var tempSucc = this.lAdjSucc.get(tempSommetZero[idTempSommetZero]);
+				for(var idTempSucc in tempSucc){
+					var sommet = tempSucc[idTempSucc];
+					var tempVal = tabTritopologie[idTritopologie].get(sommet)-1;
+					if(tempVal == 0){
+						listTempSuccZero.push(sommet)
 					}
+					tabTritopologie[idTritopologie+1].set(sommet, tempVal)
 				}
 			}
 		}
-		// this.tabnivRacine(tabTritopologie,listTempSuccZero)
+		if(listTempSuccZero.length!=0){
+			tabSomZer.push(listTempSuccZero)
+			this.tabnivRacine(tabTritopologie,listTempSuccZero,tabSomZer)
+		}
 	}
 
 	genererTabTritopologie(degMin : Map<string,any>){
+		let val = [];
 		let tabTritopologie = [];
+		let tabSomZer = [];
 		let degMinTemp = degMin;
 		tabTritopologie.push(degMin)
-		// this.tabnivRacine(tabTritopologie,this.sommetZero(tabTritopologie[0]))
-		console.log(tabTritopologie)
-		return tabTritopologie;
+		let somZerPrinc = this.sommetZero(tabTritopologie[0]);
+		tabSomZer.push(somZerPrinc)
+		this.tabnivRacine(tabTritopologie,somZerPrinc, tabSomZer)
+		val.push(tabTritopologie);
+		val.push(tabSomZer)
+		console.log(val)
 	}
 
 }

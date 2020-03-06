@@ -12,42 +12,41 @@ export class AppComponent implements OnInit {
   title = 'gantt';
 
   ngOnInit(): void {
-    var canvas = <HTMLCanvasElement>document.getElementById('stage');
-    const arc1 = new ArcComponent();
-    arc1.x1 = 100;
-    arc1.y1 = 100;
-    arc1.x2 = 200;
-    arc1.y2 = 100;
-    arc1.longueurTete = 100;
-    arc1.dessinerArc(arc1,canvas);
-    const sommet1 = new SommetComponent();
-    sommet1.x = 200;
-    sommet1.y = 100;
-    sommet1.rayon = 10;
-    sommet1.dessinerSommet(sommet1,canvas);
-    const sommet2 = new SommetComponent();
-    sommet2.x = 100;
-    sommet2.y = 100;
-    sommet2.rayon = 10;
-    sommet2.dessinerSommet(sommet2,canvas);
-
+    var canvas = <HTMLCanvasElement>document.getElementById('nonOrd');
     var g = new GrapheComponent();
     g.lAdjPred = new Map();
     g.lAdjSucc = new Map();
-    var vertices = [ "A", "B", "C", "D", "E", "F" ];
+    let A =  new SommetComponent();
+    A.x = 200;
+    A.y = 100;
+    A.rayon = 10;
+    A.nomTache = "tay"
+    A.dessinerSommet(A,canvas);
+    let B =  new SommetComponent();
+    B.x = 300;
+    B.y = 200;
+    B.rayon = 10;
+    B.nomTache = "tay"
+    B.dessinerSommet(B,canvas);
+    let C =  new SommetComponent();
+    C.x = 400;
+    C.y = 100;
+    C.rayon = 10;
+    C.nomTache = "tay"
+    C.dessinerSommet(C,canvas);
+    var vertices = [ A,B,C ];
     for (var i = 0; i < vertices.length; i++) { 
       g.ajouterSommet(vertices[i]); 
     }
-    g.ajouterArc("A", "B"); 
-    g.ajouterArc("A", "D"); 
-    g.ajouterArc("A", "E"); 
-    g.ajouterArc("B", "C"); 
-    g.ajouterArc("D", "E"); 
-    g.ajouterArc("E", "F"); 
-    g.ajouterArc("E", "C"); 
-    g.ajouterArc("C", "F"); 
-    // g.afficherGraphe();
-    // g.degreeMinimale();
+    g.ajouterArc(A, B); 
+    g.ajouterArc(A, C); 
+    g.ajouterArc(B, C);
+    const AB = new ArcComponent();
+    AB.dessinerArc(AB.somToArc(A,B),canvas);
+    AB.dessinerArc(AB.somToArc(A,C),canvas);
+    AB.dessinerArc(AB.somToArc(B,C),canvas);
+
+    var canvas1 = <HTMLCanvasElement>document.getElementById('ord');
     g.genererTabTritopologie(g.degMin())
 
   }
