@@ -25,7 +25,7 @@ Inviter le client/PO à réagir
 
 Rappel des bonnes pratiques de conception
 
-Expliquer la conception et démonter qu’elle en accord aves les bonnes pratiques
+Expliquer la conception et démontrer qu’elle est en accord aves les bonnes pratiques
 
 Démontrer que le code correspond bien à la conception
 
