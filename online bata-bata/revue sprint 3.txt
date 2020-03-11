@@ -14,8 +14,12 @@ Présentation du plan de la réunion
 
 Rappel des exigences ciblées dans le sprint
 	
-
 Démo
+	Nous allons faire une démonstration sur ce que nous avions accompli sur le sprint 3
+	Faisons un double clique sur l'éxécutable "venteetstock.jar"
+	L'application démare et montre la fenêtre de connexion
+	Nous allons opté pour le premier exemple de jeu de teste
+	Avec 
 
 Inviter le client/PO à réagir
 
