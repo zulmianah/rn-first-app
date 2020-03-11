@@ -1,0 +1,34 @@
+Présenter l’équipe + inviter les autres personnes à se présenter
+	Bonjour, nous sommes le groupe Abeilles
+	je laisse donc l'equipe a se presenter
+	Je me presente, je suis Anah. Je suis la respensable UML
+
+Rappels des objectifs de la réunion => rappels des objectifs du sprint
+	Dans ce sprint 3 donc, nous avons pour objectifs d'integrer une base de donnees 
+
+Présentation du plan de la réunion
+	Pour permettre a un  feedback concret, nous allons 
+	premierement, démontrer les objectifs de qualité externe qui est de repondre aux besoins utilisateurs
+	deuxiement, démontrer les exigences de qualité interne, c'est a dire la évolutivité 
+	et conclure pour decider si les objectifs du sprint 3 sont atteints
+
+Rappel des exigences ciblées dans le sprint
+	
+
+Démo
+
+Inviter le client/PO à réagir
+
+Rappel des bonnes pratiques de conception
+
+Expliquer la conception et démonter qu’elle en accord aves les bonnes pratiques
+
+Démontrer que le code correspond bien à la conception
+
+Inviter l’architecte logiciel à réagir
+
+Décider de façon collégiale si les objectifs du sprint sont atteints
+
+Perspectives pour la suite
+
+*** rem
